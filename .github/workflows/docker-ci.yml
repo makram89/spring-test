@@ -23,7 +23,10 @@ jobs:
           distribution: 'temurin'
 
       - name: Build with Maven
-        run: mvn clean package -DskipTests
+        run: mvn clean package
+
+      - name: Run tests
+        run: mvn test
       
       - name: Build the Docker image
         run: docker build --file Dockerfile -t $DOCKER_IMAGE -t $DOCKER_LATEST .
