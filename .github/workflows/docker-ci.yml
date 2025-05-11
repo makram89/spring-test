@@ -34,7 +34,8 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Push image to DockerHub
-        run: 
-          docker push $DOCKER_IMAGE
-          docker push $DOCKER_LATEST
+      - name: Push version image to DockerHub
+        run: docker push $DOCKER_IMAGE
+        
+      - name: Push latest image to DockerHub
+        run: docker push $DOCKER_LATEST
